@@ -4,7 +4,7 @@ import morgan from "morgan";
 import tipoVeiculoRoutes from './routes/tipoVeiculos';
 import veiculos from './routes/veiculos';
 import estancias from './routes/estancias';
-const app = express();
+const app =  express();
 app.use(cors());
 app.use(morgan("dev"));
 app.use(express.json())

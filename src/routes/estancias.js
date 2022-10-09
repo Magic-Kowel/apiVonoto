@@ -3,7 +3,7 @@ import { estancias,
     estancia,
     altaEstancias,
     bajaEstancia,
-    editarEstancia 
+    finalizarEstancia
 } from "../controller/estancias";
  
 
@@ -12,5 +12,5 @@ router.get('/estancias',estancias);
 router.get('/estancias/:id',estancia);
 router.post('/estancias',altaEstancias);
 router.delete('/estancias/:id',bajaEstancia);
-router.put('/estancias/:id', editarEstancia);
+router.put('/estancias/:id', finalizarEstancia);
 export default router;

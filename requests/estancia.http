@@ -1,10 +1,13 @@
 @api = http://localhost:3000/estancias
 GET {{api}}
 ###
+GET {{api}}/7
+###
 POST {{api}}
 Content-Type: application/json
 
 {
-    "coste_estancia":"wlu9489",
     "id_veiculo":1
 }
+###
+PUT {{api}}/7
