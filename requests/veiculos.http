@@ -1,0 +1,25 @@
+@api = http://localhost:3000/veiculos
+GET {{api}}
+###
+
+GET {{api}}/1
+###
+
+POST {{api}}
+Content-Type: application/json
+
+{
+    "placa":"wlu9489",
+    "id_tipo_veiculo":"1"
+}
+###
+DELETE {{api}}/2
+###
+
+PUT {{api}}/1
+Content-Type: application/json
+
+{
+   "placa":"1234567",
+    "id_tipo_veiculo":"1"
+}
