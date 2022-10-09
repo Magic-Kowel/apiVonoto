@@ -4,6 +4,17 @@ export const veiculos = async (req,res) =>{
     const [row] = await connection.query("SELECT * FROM veiculo");
     res.json(row);
 }
+export const veiculosActivos = async (req,res) =>{
+    const connection = await connect();
+    const [row] = await connection.query(`SELECT veiculo.id_veiculo, 
+    veiculo.placa, 
+    veiculo.estatus, 
+    tipo_veiculo.tipo 
+    FROM veiculo 
+    INNER JOIN tipo_veiculo on veiculo.id_tipo_veiculo = tipo_veiculo.id_tipo_veiculo 
+    WHERE veiculo.estatus = 1`);
+    res.json(row);
+}
 export const veiculo = async (req,res)=>{
     const connection = await connect();
     const [rows] = await connection.query("SELECT * FROM veiculo where id_veiculo = ?",
