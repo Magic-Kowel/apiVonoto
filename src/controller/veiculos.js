@@ -8,7 +8,8 @@ export const veiculosActivos = async (req,res) =>{
     const connection = await connect();
     const [row] = await connection.query(`SELECT veiculo.id_veiculo, 
     veiculo.placa, 
-    veiculo.estatus, 
+    veiculo.estatus,
+    veiculo.id_tipo_veiculo,
     tipo_veiculo.tipo 
     FROM veiculo 
     INNER JOIN tipo_veiculo on veiculo.id_tipo_veiculo = tipo_veiculo.id_tipo_veiculo 
