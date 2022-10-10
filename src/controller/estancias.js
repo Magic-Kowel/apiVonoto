@@ -25,7 +25,26 @@ export const altaEstancias = async (req,res) =>{
 }
 export const finalizarEstancia = async (req,res) =>{
     const connection = await connect();
-    const results = await connection.query("UPDATE estancia SET tiempo_fin = NOW() WHERE estancia.id_estancia = ?",[
+    const [minutos] = await connection.query(`select TIMESTAMPDIFF(MINUTE,tiempo_inicio,tiempo_fin) as minutos
+        from estancia 
+        where id_estancia= ?`,[
+        req.params.id
+    ]);
+    const [importe] = await connection.query(`SELECT tipo_veiculo.importe 
+    FROM estancia 
+    INNER JOIN veiculo on estancia.id_veiculo = estancia.id_veiculo 
+    INNER JOIN tipo_veiculo on tipo_veiculo.id_tipo_veiculo = veiculo.id_tipo_veiculo 
+    WHERE estancia.id_estancia = ?
+    AND estancia.estatus = 1
+    limit 1`,[
+    req.params.id
+    ]);
+ 
+    const costo = (minutos[0].minutos * importe[0].importe);
+    const results = await connection.query(`UPDATE estancia 
+    SET tiempo_fin = NOW(),
+    coste_estancia = ${costo}
+    WHERE estancia.id_estancia = ?`,[
         req.params.id
     ]);
     res.sendStatus(204)
