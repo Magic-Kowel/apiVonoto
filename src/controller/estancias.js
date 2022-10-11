@@ -1,7 +1,16 @@
 import { connect } from "../database"
 export const estancias = async (req,res) =>{
     const connection = await connect();
-    const [rows] = await connection.query("SELECT * FROM estancia");
+    const [rows] = await connection.query(`
+    SELECT 
+    estancia.tiempo_inicio,
+    estancia.tiempo_fin,
+    veiculo.placa,
+    tipo_veiculo.tipo
+    FROM estancia 
+    INNER JOIN veiculo on estancia.id_veiculo = estancia.id_veiculo 
+    INNER JOIN tipo_veiculo on tipo_veiculo.id_tipo_veiculo = veiculo.id_tipo_veiculo 
+    AND estancia.estatus = 1`);
     res.json(rows);
 }
 export const estancia = async (req,res) =>{

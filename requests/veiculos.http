@@ -21,6 +21,6 @@ PUT {{api}}/1
 Content-Type: application/json
 
 {
-   "placa":"1234567",
+   "placa":"777777",
     "id_tipo_veiculo":"1"
 }
