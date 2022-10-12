@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 09-10-2022 a las 23:16:16
+-- Tiempo de generación: 11-10-2022 a las 05:12:18
 -- Versión del servidor: 10.4.11-MariaDB
 -- Versión de PHP: 7.2.26
 
@@ -33,17 +33,24 @@ CREATE TABLE `estancia` (
   `tiempo_inicio` datetime NOT NULL DEFAULT current_timestamp(),
   `tiempo_fin` datetime DEFAULT NULL,
   `coste_estancia` decimal(6,2) DEFAULT NULL,
-  `id_veiculo` int(11) NOT NULL
+  `id_veiculo` int(11) NOT NULL,
+  `estatus` tinyint(1) DEFAULT 1
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Volcado de datos para la tabla `estancia`
 --
 
-INSERT INTO `estancia` (`id_estancia`, `tiempo_inicio`, `tiempo_fin`, `coste_estancia`, `id_veiculo`) VALUES
-(1, '2022-10-09 16:04:07', NULL, '5.00', 1),
-(2, '2022-10-09 16:14:33', NULL, '5.00', 1),
-(3, '2022-10-09 16:14:36', NULL, '5.00', 1);
+INSERT INTO `estancia` (`id_estancia`, `tiempo_inicio`, `tiempo_fin`, `coste_estancia`, `id_veiculo`, `estatus`) VALUES
+(1, '2022-10-09 16:04:07', NULL, '5.00', 1, 1),
+(2, '2022-10-09 16:14:33', NULL, '5.00', 1, 1),
+(3, '2022-10-09 16:14:36', NULL, '5.00', 1, 1),
+(4, '2022-10-09 16:33:26', NULL, '5.00', 1, 1),
+(5, '2022-10-09 16:34:30', NULL, NULL, 1, 1),
+(6, '2022-10-09 16:34:32', '2022-10-09 17:13:56', NULL, 1, 1),
+(7, '2022-10-09 16:34:54', '2022-10-09 19:09:59', '7.45', 1, 1),
+(8, '2022-10-09 16:34:54', NULL, NULL, 1, 1),
+(9, '2022-10-09 17:02:35', NULL, NULL, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -91,8 +98,10 @@ CREATE TABLE `veiculo` (
 --
 
 INSERT INTO `veiculo` (`id_veiculo`, `placa`, `id_tipo_veiculo`, `estatus`) VALUES
-(1, '1234567', 1, 1),
-(2, 'wlu9489', 1, 0);
+(1, '777777', 1, 1),
+(2, 'wlu9489', 1, 0),
+(3, '000071', 1, 0),
+(4, 'hola3', 2, 0);
 
 --
 -- Índices para tablas volcadas
@@ -126,7 +135,7 @@ ALTER TABLE `veiculo`
 -- AUTO_INCREMENT de la tabla `estancia`
 --
 ALTER TABLE `estancia`
-  MODIFY `id_estancia` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_estancia` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT de la tabla `tipo_veiculo`
@@ -138,7 +147,7 @@ ALTER TABLE `tipo_veiculo`
 -- AUTO_INCREMENT de la tabla `veiculo`
 --
 ALTER TABLE `veiculo`
-  MODIFY `id_veiculo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_veiculo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- Restricciones para tablas volcadas

@@ -4,6 +4,11 @@ import morgan from "morgan";
 import tipoVeiculoRoutes from './routes/tipoVeiculos';
 import veiculos from './routes/veiculos';
 import estancias from './routes/estancias';
+import PDF  from 'pdfkit'
+import blobStream  from 'pdfkit'
+ 
+import fs  from 'fs'
+ 
 const app =  express();
 app.use(cors());
 app.use(morgan("dev"));
