@@ -5,7 +5,8 @@ import { estancias,
     estancia,
     altaEstancias,
     finalizarEstancia,
-    estanciasReporte
+    estanciasReporte,
+    resetearEstancia
 } from "../controller/estancias";
  
 
@@ -16,7 +17,7 @@ router.get('/estancias/:id',estancia);
 router.get('/estancias/:id',estancia);
 router.post('/estancias',altaEstancias);
 router.put('/estancias/:id', finalizarEstancia);
-
+router.put('/resetear/estancia', resetearEstancia);
 const pdfService = require('./../service/pdf-service');
 
 router.get('/invoice', (req, res, next) => {

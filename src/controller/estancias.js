@@ -76,3 +76,15 @@ export const finalizarEstancia = async (req,res) =>{
     ]);
     res.sendStatus(204)
 }
+export const resetearEstancia = async (req,res) =>{
+    const connection = await connect();
+    const results = await connection.query(`UPDATE estancia 
+        SET estatus = 0
+        WHERE estancia.id_veiculo = 
+        (
+            SELECT id_tipo_veiculo 
+            FROM veiculo
+            WHERE id_tipo_veiculo =1
+        )`);
+    res.sendStatus(204)
+}
