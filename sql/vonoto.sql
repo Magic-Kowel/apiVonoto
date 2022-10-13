@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 13-10-2022 a las 04:51:27
+-- Tiempo de generación: 13-10-2022 a las 05:32:36
 -- Versión del servidor: 10.4.11-MariaDB
 -- Versión de PHP: 7.2.26
 
@@ -42,17 +42,9 @@ CREATE TABLE `estancia` (
 --
 
 INSERT INTO `estancia` (`id_estancia`, `tiempo_inicio`, `tiempo_fin`, `coste_estancia`, `id_veiculo`, `estatus`) VALUES
-(1, '2022-10-10 22:15:19', '2022-10-12 21:09:39', '140.60', 1, 0),
-(2, '2022-10-10 22:47:15', '2022-10-12 21:07:23', '0.15', 1, 0),
-(3, '2022-10-10 21:51:29', '2022-10-10 22:54:09', '3.00', 1, 0),
-(4, '2022-10-10 22:52:41', '2022-10-10 23:03:19', '0.00', 1, 0),
-(5, '2022-10-10 23:51:42', '2022-10-10 23:51:46', '0.00', 1, 0),
-(6, '2022-10-10 23:52:29', '2022-10-10 23:52:31', '0.00', 1, 0),
-(7, '2022-10-10 23:56:32', '2022-10-10 23:56:33', '0.00', 1, 0),
-(8, '2022-10-12 00:36:22', '2022-10-12 00:36:29', '0.00', 3, 1),
-(9, '2022-10-12 21:11:01', '2022-10-12 21:11:08', '0.00', 3, 1),
-(10, '2022-10-12 21:22:22', '2022-10-12 21:27:38', '0.00', 1, 1),
-(11, '2022-10-12 21:36:42', '2022-10-12 21:44:11', '0.00', 1, 1);
+(1, '2022-10-12 22:26:10', NULL, NULL, 1, 1),
+(2, '2022-10-12 22:32:01', NULL, NULL, 3, 1),
+(3, '2022-10-12 22:32:07', '2022-10-12 22:32:08', '0.00', 2, 1);
 
 -- --------------------------------------------------------
 
@@ -97,7 +89,7 @@ CREATE TABLE `veiculo` (
 
 INSERT INTO `veiculo` (`id_veiculo`, `placa`, `id_tipo_veiculo`, `estatus`) VALUES
 (1, '1234567', 1, 1),
-(2, '189651', 3, 0),
+(2, '189651', 3, 1),
 (3, '0000007', 2, 1);
 
 --
@@ -132,7 +124,7 @@ ALTER TABLE `veiculo`
 -- AUTO_INCREMENT de la tabla `estancia`
 --
 ALTER TABLE `estancia`
-  MODIFY `id_estancia` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id_estancia` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de la tabla `tipo_veiculo`

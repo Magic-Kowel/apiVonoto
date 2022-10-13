@@ -11,7 +11,7 @@ export const estancias = async (req,res) =>{
     tipo_veiculo.tipo,
     estancia.coste_estancia
     FROM estancia 
-    INNER JOIN veiculo on estancia.id_veiculo = estancia.id_veiculo 
+    INNER JOIN veiculo on estancia.id_veiculo = veiculo.id_veiculo 
     INNER JOIN tipo_veiculo on tipo_veiculo.id_tipo_veiculo = veiculo.id_tipo_veiculo 
     AND estancia.estatus = 1`);
     res.json(rows);
